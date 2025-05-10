@@ -1,0 +1,109 @@
+name: Documentation Version Build/Tag/Push Pipeline 
+on:
+  workflow_dispatch:
+    inputs:
+      build:
+        description: 'Build the Docker Image'
+        required: false
+        default: false
+        type: 'boolean'
+
+  push:
+    branches:
+      - '*'
+
+  pull_request_target:
+    types:
+      - closed
+
+    branches:
+      - 'main'
+      - '!*'
+
+    paths:
+      - 'docs/**'
+      - 'docker/docs/**'
+
+jobs:
+  check_markdown_files:    
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout Manscaped SRE Repo
+      uses: actions/checkout@v4
+      with:
+        # Checkout as many commits as needed for the diff
+        fetch-depth: 0
+    - name: Check Documentation Changes
+      run: |
+        function check() {
+          # Diff HEAD with the previous commit
+          diff=( $(git diff --name-only HEAD^ HEAD) )
+
+          # Check if the diff contains any markdown files
+          if [[ ${diff[*]} =~ .*\.md ]]; then
+              return 0
+          else
+              return 1
+          fi
+        }
+
+        export DOCS=$(check)
+        
+        if [[ ${DOCS} == 0 ]]; then
+          echo "Building New Image"
+          cd docker || exit 1 && make sre-docs-publish
+          exit 0
+        else
+          echo "No documentation changes..."
+          exit 0
+        fi
+
+  build_and_push_docker_image:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-22.04
+    needs: check_markdown_files
+    steps:
+    - name: Checkout Manscaped SRE Repo
+      uses: actions/checkout@v3
+
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: google-github-actions/auth@v0
+      with:
+        credentials_json: ${{ secrets.SRE_GCP_CREDENTIALS }}
+        service_account: ${{ secrets.SRE_GCP_SERVICE_ACCOUNT}}
+
+    # Replace with the correct action to push to GCR
+    #- uses: RafikFarhad/push-to-gcr-github-action@v5-beta
+    #  with:
+    #    registry: ${{ vars.REGISTRY }}
+    #    project_id: manscaped-sre
+    #    image_name: ${{ vars.REPOSITORY }}/manscaped-sre-docs
+    #    #image_tag: v0.0.1-${{ github.sha }}
+    #    image_tag: "latest"
+    #    dockerfile: ${{ github.workspace }}/docker/sre-docs/Dockerfile
+
+  manual_build_and_push_docker_image:
+    if: ${{ inputs.build }}
+    runs-on: ubuntu-22.04
+    needs: check_markdown_files
+    steps:
+    - name: Checkout Manscaped SRE Repo
+      uses: actions/checkout@v4
+
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: google-github-actions/auth@v0
+      with:
+        credentials_json: ${{ secrets.SRE_GCP_CREDENTIALS }}
+        service_account: manscaped-sre@manscaped-sre.iam.gserviceaccount.com
+
+    # Replace with the correct action to push to GCR
+    #- uses: RafikFarhad/push-to-gcr-github-action@v5-beta
+    #  with:
+    #    registry: ${{ vars.REGISTRY }}
+    #    project_id: manscaped-sre
+    #    image_name: ${{ vars.REPOSITORY }}/manscaped-sre-docs
+    #    #image_tag: v0.0.1-${{ github.sha }}
+    #    image_tag: "latest"
+    #    dockerfile: ${{ github.workspace }}/docker/sre-docs/Dockerfile

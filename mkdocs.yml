@@ -1,0 +1,68 @@
+site_name: PyFlowOps Documentation
+site_description: Documentation for the PyFlowOps automation of infrastructure, applications, and CI/CD.
+site_url: ""
+dev_addr: 127.0.0.1:8100
+repo_url: https://github.com/pyflowops
+
+# Navigation
+nav:
+  - Home: index.md
+  - About:
+    - Release Notes: src/about/release-notes.md
+    - License: src/about/license.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - footnotes
+  - abbr
+  - toc
+  - pymdownx.superfences:
+        # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+
+theme:
+  name: material
+  hide:
+    - navigation
+  palette:
+    primary: black
+    accent: black
+
+    scheme: slate
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+plugins:
+  - search
+  - mermaid2
+  - glightbox
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: []
+          options:
+            show_source: true
+  - badges
+  - exclude-search:
+      exclude:
+        - index.md##table-of-contents
+        - '*.md##table-of-contents'
+        - src/developer-mac-setup.md##table-of-contents
+        - 'src/*.md##table-of-contents'
+      exclude_unreferenced: true
+  #- fontawesome
+
+copyright: Copyright &copy; 2025 <a href="https://github.com/pyflowops">PyFlowOps</a>, Maintained by the <a href="/about">Philip De Lorenzo [philip.delorenzo@gmail.com]</a>.
+
+watch:
+  - docs
