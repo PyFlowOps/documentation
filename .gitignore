@@ -17,27 +17,9 @@ site/
 temp/
 
 # Local Documentation
-docs/adr**
 docs/src/docker**
-docs/src/manscaped-cli**
-docs/src/mando**
-docs/src/cloud-functions**
-docs/src/mnscpd-app-docker**
-docs/src/manscaped-sre-automation**
-docs/src/sre-gha**
-docs/src/dev-mac-img
+docs/src/base-repo-template**
 .python**
-
-# manscaped-sre repo
-docs/src/poc**
-docs/src/adr**
-docs/src/manscaped-sre**
-docs/src/mnscpd-mac-setup**
-
-# manscaped-cli repo
-# manscaped-infrastructure repo
-# manscaped-sre-automation
-# manscaped-sre-*
 
 #IDE
 .idea/*

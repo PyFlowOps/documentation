@@ -7,6 +7,7 @@ repo_url: https://github.com/pyflowops
 # Navigation
 nav:
   - Home: index.md
+  - Getting Started: src/getting-started.md
   - About:
     - Release Notes: src/about/release-notes.md
     - License: src/about/license.md
@@ -62,7 +63,7 @@ plugins:
       exclude_unreferenced: true
   #- fontawesome
 
-copyright: Copyright &copy; 2025 <a href="https://github.com/pyflowops">PyFlowOps</a>, Maintained by the <a href="/about">Philip De Lorenzo [philip.delorenzo@gmail.com]</a>.
+copyright: Copyright &copy; 2025 <a href="https://github.com/pyflowops">PyFlowOps</a>, Maintained by <a href="/about">Philip De Lorenzo [philip.delorenzo@gmail.com]</a>.
 
 watch:
   - docs

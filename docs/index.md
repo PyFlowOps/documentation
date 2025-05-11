@@ -12,14 +12,13 @@ maintaining of the tools easier.
 
 See [PyFlowOps Site Docker Image](src/docker/index.md)
 
-## PyFlowOps GCP Cloud Functions
+## PyFlowOps Base Repository Template
 
-These are cloud functions that are utilized in Github Actions, Kubernetes environment,
-or running tools. We ship the environment with the product to keep running and
-maintaining of the tools easier.
+This is the documentation for the base repository template in which all of the applications
+are built upon.
 
-See [Cloud Functions](src/cloud-functions/sre/index.md)
+See [PyFlowOps Base Repo Template](src/base-repo-template/index.md)
 
-## SRE Admin Portal Project
+## PyFlowOps Portal Project
 
 Coming soon...

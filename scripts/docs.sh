@@ -31,14 +31,17 @@ mkdir -p "${BASEDIR}"/docs/src/docker
 # Make the dirs for the cloud functions (ALL)
 mkdir -p "${BASEDIR}"/docs/src/cloud-functions
 
+# Copying all data from the /docker directory to the docs folder
 cp -R "${BASEDIR}"/docker/* "${BASEDIR}"/docs/src/docker
 
-############################ Manscaped SRE Repo ############################
+############################ PyFlowOps Base Template Repo ############################
 #git clone --branch feat/sre-gcp https://github.com/manscaped-dev/manscaped-sre.git "${BASEDIR}"/temp/manscaped-sre # Clone the manscaped-sre repo
 git clone --branch main https://github.com/pyflowops/base-repo-template.git "${BASEDIR}"/temp/base-repo-template
 
-# Copying the Architecture Decision Records from the manscaped-sre repo
-#cp -R "${TEMPDIR}"/manscaped-sre/doc/adr "${BASEDIR}"/docs/src # Copy the ADRs to the docs folder directly
+# Copying the Base Repo Documentation
+[[ -d "${BASEDIR}"/docs/src/base-repo-template ]] && rm -rf "${BASEDIR}"/docs/src/base-repo-template # Remove the old base repo template folder
+mkdir -p "${BASEDIR}"/docs/src/base-repo-template # Make the dirs for the base repo template
+cp -R "${TEMPDIR}"/base-repo-template/docs/* "${BASEDIR}"/docs/src/base-repo-template # Copy the ADRs to the docs folder directly
 
 # Make the dirs for the dev portal (manscaped-sre repo)
 #mkdir -p "${BASEDIR}"/docs/src/repo_additions
