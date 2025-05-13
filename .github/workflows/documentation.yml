@@ -70,18 +70,18 @@ jobs:
       id: auth
       uses: google-github-actions/auth@v0
       with:
-        credentials_json: ${{ secrets.SRE_GCP_CREDENTIALS }}
-        service_account: ${{ secrets.SRE_GCP_SERVICE_ACCOUNT}}
+        credentials_json: ${{ secrets.PFO_GCP_CREDENTIALS }}
+        service_account: ${{ secrets.PFO_GCP_SERVICE_ACCOUNT}}
 
     # Replace with the correct action to push to GCR
     #- uses: RafikFarhad/push-to-gcr-github-action@v5-beta
     #  with:
     #    registry: ${{ vars.REGISTRY }}
     #    project_id: manscaped-sre
-    #    image_name: ${{ vars.REPOSITORY }}/manscaped-sre-docs
+    #    image_name: ${{ vars.REPOSITORY }}/pyflowops-docs
     #    #image_tag: v0.0.1-${{ github.sha }}
     #    image_tag: "latest"
-    #    dockerfile: ${{ github.workspace }}/docker/sre-docs/Dockerfile
+    #    dockerfile: ${{ github.workspace }}/docs/Dockerfile
 
   manual_build_and_push_docker_image:
     if: ${{ inputs.build }}
@@ -95,15 +95,15 @@ jobs:
       id: auth
       uses: google-github-actions/auth@v0
       with:
-        credentials_json: ${{ secrets.SRE_GCP_CREDENTIALS }}
-        service_account: manscaped-sre@manscaped-sre.iam.gserviceaccount.com
+        credentials_json: ${{ secrets.PFO_GCP_CREDENTIALS }}
+        service_account: ${{ secrets.PFO_GCP_SERVICE_ACCOUNT}}
 
     # Replace with the correct action to push to GCR
     #- uses: RafikFarhad/push-to-gcr-github-action@v5-beta
     #  with:
     #    registry: ${{ vars.REGISTRY }}
-    #    project_id: manscaped-sre
-    #    image_name: ${{ vars.REPOSITORY }}/manscaped-sre-docs
+    #    project_id: ###
+    #    image_name: ${{ vars.REPOSITORY }}/pyflowops-docs
     #    #image_tag: v0.0.1-${{ github.sha }}
     #    image_tag: "latest"
-    #    dockerfile: ${{ github.workspace }}/docker/sre-docs/Dockerfile
+    #    dockerfile: ${{ github.workspace }}/docs/Dockerfile
