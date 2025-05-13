@@ -37,11 +37,19 @@ cp -R "${BASEDIR}"/docker/* "${BASEDIR}"/docs/src/docker
 ############################ PyFlowOps Base Template Repo ############################
 #git clone --branch feat/sre-gcp https://github.com/manscaped-dev/manscaped-sre.git "${BASEDIR}"/temp/manscaped-sre # Clone the manscaped-sre repo
 git clone --branch main https://github.com/pyflowops/base-repo-template.git "${BASEDIR}"/temp/base-repo-template
+git clone --branch main https://github.com/pyflowops/pfo-cli.git "${BASEDIR}"/temp/pfo-cli
+
 
 # Copying the Base Repo Documentation
 [[ -d "${BASEDIR}"/docs/src/base-repo-template ]] && rm -rf "${BASEDIR}"/docs/src/base-repo-template # Remove the old base repo template folder
 mkdir -p "${BASEDIR}"/docs/src/base-repo-template # Make the dirs for the base repo template
 cp -R "${TEMPDIR}"/base-repo-template/docs/* "${BASEDIR}"/docs/src/base-repo-template # Copy the ADRs to the docs folder directly
+
+
+# Copying the pfo CLI Documentation
+[[ -d "${BASEDIR}"/docs/src/pfo-cli ]] && rm -rf "${BASEDIR}"/docs/src/pfo-cli # Remove the old pfo-cli folder
+mkdir -p "${BASEDIR}"/docs/src/pfo-cli # Make the dirs for the pfo-cli
+cp -R "${TEMPDIR}"/pfo-cli/docs/* "${BASEDIR}"/docs/src/pfo-cli # Copy the ADRs to the docs folder directly
 
 # Make the dirs for the dev portal (manscaped-sre repo)
 #mkdir -p "${BASEDIR}"/docs/src/repo_additions

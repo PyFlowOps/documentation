@@ -4,6 +4,12 @@ Please see `Getting Started` from the menu on the left. This is the best place t
 familiar with the SRE team and how we operate, how to contribute and utilize the tools
 that we provide.
 
+## PyFlowOps CLI _(pfo CLI)_
+
+The pfo CLI is at the heart of the PyFlowOps ecosystem. This tool is a must have!
+
+See [pfo CLI](src/pfo-cli/index.md)
+
 ## PyFlowOps Docker Images
 
 These are images that are utilized in Github Actions, Kubernetes environment,
