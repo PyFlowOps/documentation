@@ -17,14 +17,14 @@ in the Cloud.
 
 Set up a Github Organization for housing all of your repos, code, etc.
 
-See [Creating an Organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+See [Creating an Organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch){target="_blank"}
 
 ## 2. Create a Github Access Token (PAT)
 
 Soon, we will develop a Github Application for this process, but until then, the Github Personal Access Token (PAT)
 is the best way to connect into your organization and run the commands.
 
-See [Managing a Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+See [Managing a Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens){target="_blank"}
 
 You can add more access if you need to, but here is the access that the token should have (classic):
 ![pat1](../img/pat-access-1.png)
@@ -35,14 +35,14 @@ You can add more access if you need to, but here is the access that the token sh
 
 ## 3. Setup your Doppler Account
 
-You will need to create a Doppler account, you can register [here](https://dashboard.doppler.com/register).
+You will need to create a Doppler account, you can register [here](https://dashboard.doppler.com/register){target="_blank"}.
 
 #### Create a Doppler Project for your Organization
 
 Once registered, let's create a project for your organization, i.e. `pyflowops` --> this is to sync Organization
 level secrets to use in your Github Actions.
 
-See [Create Doppler Project](https://docs.doppler.com/docs/create-project)
+See [Create Doppler Project](https://docs.doppler.com/docs/create-project){target="_blank"}
 
 Once the project is created, let's set the Environment, and Configs!
 
@@ -55,6 +55,9 @@ Rename `Production` to `Github Organization`, and set the slug for the environme
 
 #### Config Sync the Project
 
+**STOP!!!** This only works if the repo is private, UNLESS you have an upgraded Github account. If you are running the free tier, you will need
+to make your repos public to access the Organization secrets.
+
 Now that the Org secrets project has been created, let's setup a `Config Sync` in Doppler to your Organization.
 
 NOTE: If you try to setup a `Config Sync` and you do not see your organization, the click `Create New Connection` and select
@@ -62,7 +65,7 @@ the Github Organization.
 
 ![select-connection](../img/doppler-select-connection.png)
 
-See [Github Action Sync](https://docs.doppler.com/docs/github-actions)
+See [Github Action Sync](https://docs.doppler.com/docs/github-actions){target="_blank"}
 
 To sync all of your secrets for Github Actions:
 
@@ -92,4 +95,4 @@ You can find this data here --> https://github.com/organizations/`<your-organiza
 
 Install the `pfo CLI` -- Coming Soon!
 
-[PyFlowOps Repo Template](https://github.com/pyflowops/base-repo-template)
+[PyFlowOps Repo Template](https://github.com/pyflowops/base-repo-template){target="_blank"}

@@ -7,32 +7,23 @@ BASEDIR="$( realpath "${BASE}/..")"
 TEMPDIR="${BASEDIR}/temp"
 
 # Add the folder to the array if this item is to be cleaned on service init
+source "${BASE}/_functions.sh" # Let's source the functions file so that we can extend the script
+
+# Add the folder to the array if this item is to be cleaned on service init
 CLEAN_FOLDERS=( "docs" "temp" "docker" "iac" )
 
 # Getting Documentation from other repos
-# We need to remove any 
-if [[ -d "${BASEDIR}/temp" ]]; then
-  rm -rf "${BASEDIR}/temp"
-fi
-
-mkdir -p "${BASEDIR}"/temp # Make the temp directory for all data to be stored
-
-# Cleaning the docs folder
-for i in "${CLEAN_FOLDERS[@]}"; do
-  if [[ -d "${BASEDIR}/docs/src/${i}" ]]; then
-    rm -rf "${BASEDIR}/docs/src/${i}"
-  fi
-done
+# We need to remove any old temp files
+clean # Clean the docs folder
+[[ -d "${BASEDIR}/temp" ]] && rm -rf "${BASEDIR}/temp" && mkdir -p "${BASEDIR}"/temp # Make the temp directory for all data to be stored
+[[ ! -d "${BASEDIR}/temp" ]] && mkdir -p "${BASEDIR}"/temp # Make the temp directory for all data to be stored if not exists
 
 ### Local ###
 # Make the needed directories
 mkdir -p "${BASEDIR}"/docs/src/docker
 
-# Make the dirs for the cloud functions (ALL)
-mkdir -p "${BASEDIR}"/docs/src/cloud-functions
-
 # Copying all data from the /docker directory to the docs folder
-cp -R "${BASEDIR}"/docker/* "${BASEDIR}"/docs/src/docker
+rsync_files "${BASEDIR}"/docker "${BASEDIR}"/docs/src/docker
 
 ############################ PyFlowOps Base Template Repo ############################
 #git clone --branch feat/sre-gcp https://github.com/manscaped-dev/manscaped-sre.git "${BASEDIR}"/temp/manscaped-sre # Clone the manscaped-sre repo
@@ -41,15 +32,16 @@ git clone --branch main https://github.com/pyflowops/pfo-cli.git "${BASEDIR}"/te
 
 
 # Copying the Base Repo Documentation
-[[ -d "${BASEDIR}"/docs/src/base-repo-template ]] && rm -rf "${BASEDIR}"/docs/src/base-repo-template # Remove the old base repo template folder
-mkdir -p "${BASEDIR}"/docs/src/base-repo-template # Make the dirs for the base repo template
-cp -R "${TEMPDIR}"/base-repo-template/docs/* "${BASEDIR}"/docs/src/base-repo-template # Copy the ADRs to the docs folder directly
-
+#[[ -d "${BASEDIR}/docs/src/base-repo-template" ]] && rm -rf "${BASEDIR}/docs/src/base-repo-template" # Remove the old base repo template folder
+#mkdir -p "${BASEDIR}"/docs/src/base-repo-template # Make the dirs for the base repo template
+#cp -R "${TEMPDIR}"/base-repo-template/docs/* "${BASEDIR}"/docs/src/base-repo-template # Copy the ADRs to the docs folder directly
+rsync_files "${TEMPDIR}"/base-repo-template/docs "${BASEDIR}"/docs/src/base-repo-template # Copy the ADRs to the docs folder directly
 
 # Copying the pfo CLI Documentation
-[[ -d "${BASEDIR}"/docs/src/pfo-cli ]] && rm -rf "${BASEDIR}"/docs/src/pfo-cli # Remove the old pfo-cli folder
-mkdir -p "${BASEDIR}"/docs/src/pfo-cli # Make the dirs for the pfo-cli
-cp -R "${TEMPDIR}"/pfo-cli/docs/* "${BASEDIR}"/docs/src/pfo-cli # Copy the ADRs to the docs folder directly
+#[[ -d "${BASEDIR}"/docs/src/pfo-cli ]] && rm -rf "${BASEDIR}"/docs/src/pfo-cli # Remove the old pfo-cli folder
+#mkdir -p "${BASEDIR}"/docs/src/pfo-cli # Make the dirs for the pfo-cli
+#cp -R "${TEMPDIR}"/pfo-cli/docs/* "${BASEDIR}"/docs/src/pfo-cli # Copy the ADRs to the docs folder directly
+rsync_files "${TEMPDIR}"/pfo-cli/docs "${BASEDIR}"/docs/src/pfo-cli # Copy the ADRs to the docs folder directly
 
 # Make the dirs for the dev portal (manscaped-sre repo)
 #mkdir -p "${BASEDIR}"/docs/src/repo_additions

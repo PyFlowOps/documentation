@@ -1,4 +1,4 @@
-site_name: PyFlowOps Documentation
+site_name: Documentation
 site_description: Documentation for the PyFlowOps automation of infrastructure, applications, and CI/CD.
 site_url: ""
 dev_addr: 127.0.0.1:8100
@@ -12,6 +12,13 @@ nav:
     - Release Notes: src/about/release-notes.md
     - License: src/about/license.md
 
+extra_javascript:
+  - js/external-sidebar-links.js
+
+extra_css:
+  - stylesheets/extra.css
+  - css/hide-toc.css
+    
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -27,6 +34,7 @@ markdown_extensions:
 
 theme:
   name: material
+  logo: assets/images/banner_265x50.png
   hide:
     - navigation
   palette:
@@ -53,6 +61,8 @@ plugins:
           paths: []
           options:
             show_source: true
+            python_path: ./python
+
   - badges
   - exclude-search:
       exclude:

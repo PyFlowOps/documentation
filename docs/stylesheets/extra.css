@@ -1,0 +1,229 @@
+/* Main background color */
+/* Set consistent background color for all major elements */
+:root {
+    --main-bg-color: #000000; /* Set your desired background color here */
+    --secondary-bg-color: #282828; /* For secondary elements */
+    
+    --code-bg-color: #000000; /* For code blocks */
+    --header-bg-color: #000000; /* For header/footer */
+    --main-text-color: #b5b5b5; /* Main text color */
+    --admonition-title-bg: #000000; /* For admonition titles */
+    --link-color: #5c95ff; /* Link color */
+    --link-hover-color: #ffa754; /* Link hover color */
+    --link-visited-color: #4e6796; /* Visited link color */
+    --link-active-color: #ffa754; /* Active link color */
+    --link-underline: none; /* Underline for links */
+}
+
+/* Apply to all major layout containers */
+html,
+body,
+.md-main,
+.md-main__inner,
+.md-content,
+.md-content__inner,
+.md-sidebar,
+.md-sidebar__scrollwrap,
+.md-sidebar__inner,
+.md-nav,
+.md-nav__list,
+.md-nav__title,
+.md-nav__item,
+.md-grid,
+.md-container,
+.md-typeset,
+.md-typeset .admonition,
+.md-typeset details,
+article,
+section,
+div {
+    background-color: var(--main-bg-color) !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Change normal link color in content area */
+.md-content a {
+    color:  var(--link-color) !important;  /* Change to your preferred color */
+  }
+  
+  /* Change link hover color */
+  .md-content a:hover {
+    color: var(--link-hover-color) !important;  /* Darker shade for hover state */
+  }
+  
+  /* Change visited link color (optional) */
+  .md-content a:visited {
+    color: var(--link-visited-color) !important;  /* Change to your preferred visited link color */
+  }
+  
+  /* Change active link color (when clicked) */
+  .md-content a:active {
+    color: var(--link-active-color) !important;  /* Change to your preferred active link color */
+  }
+  
+  /* Remove underline if desired */
+  .md-content a {
+    text-decoration: none;  /* Remove underline */
+  }
+  
+  /* Add underline only on hover if desired */
+  .md-content a:hover {
+    text-decoration: underline;  /* Add underline on hover */
+  }
+
+/* Left sidebar navigation title (site name) */
+.md-nav__title {
+    box-shadow: none;
+    color: var(--link-color);
+    font-weight: bold;
+}
+
+/* SPECIFIC ELEMENT FIXES */
+/* Fix both sidebars (navigation and TOC) */
+.md-sidebar--primary,
+.md-sidebar--primary *,
+.md-sidebar--secondary,
+
+.md-sidebar--secondary * {
+    background-color: var(--main-bg-color) !important;
+}
+
+/* Content area */
+.md-content__inner,
+.md-typeset,
+.md-typeset > *,
+main,
+main > *,
+article,
+article > * {
+    background-color: var(--main-bg-color) !important;
+}
+
+/* Tables */
+.md-typeset table:not([class]),
+.md-typeset table:not([class]) tr,
+.md-typeset table:not([class]) td {
+    background-color: var(--main-bg-color) !important;
+}
+.md-typeset table:not([class]) th {
+    background-color: var(--code-bg-color) !important;
+}
+
+/* Code blocks - maintained as slightly different */
+.md-typeset code,
+.codehilite,
+.highlight,
+pre,
+code {
+    background-color: var(--code-bg-color) !important;
+}
+
+/* Admonition blocks */
+.md-typeset .admonition,
+.md-typeset details {
+    background-color: var(--main-bg-color) !important;
+}
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > summary {
+    background-color: var(--admonition-title-bg) !important;
+}
+
+/* Search results */
+.md-search-result,
+.md-search-result__article,
+.md-search__inner,
+.md-search__scrollwrap {
+    background-color: var(--secondary-bg-color) !important;
+}
+
+/* Header and footer - typically have different colors */
+.md-header,
+.md-tabs,
+.md-footer-nav,
+.md-footer-meta {
+    background-color: var(--header-bg-color) !important;
+}
+
+/* Fix specific components that might override the background */
+.md-header {
+    background-color: var(--header-bg-color) !important; /* Your header color */
+}
+
+.md-footer {
+    background-color: var(--footer-bg-color) !important; /* Your footer color */
+}
+
+.md-typeset code,
+.codehilite,
+.highlight {
+    background-color: var(--code-bg-color) !important; /* Light gray for code blocks */
+}
+
+/* Text color */
+body {
+    color: var(--main-text-color) !important; /* Main text color */
+}
+
+/* Standardize all navigation link colors */
+.md-nav__link,
+.md-nav__item .md-nav__link,
+.md-nav--primary .md-nav__link,
+.md-nav--secondary .md-nav__link {
+    color: var(--link-color) !important; /* Change this to your preferred color */
+}
+
+/* Hover state for all navigation links */
+.md-nav__link:hover,
+.md-nav__item .md-nav__link:hover,
+.md-nav--primary .md-nav__link:hover,
+.md-nav--secondary .md-nav__link:hover {
+    color: var(--link-hover-color) !important; /* Slightly lighter shade for hover */
+}
+
+/* Active/current page link */
+.md-nav__link--active,
+.md-nav__item--active > .md-nav__link,
+.md-nav__item .md-nav__item--active > .md-nav__link {
+    color: var(--link-active-color) !important; /* Highlight color for active page */
+    font-weight: bold;
+}
+
+/* Visited links - if you want to distinguish them */
+.md-nav__link:visited {
+    color: var(--link-visited-color) !important; /* Same as regular links for consistency */
+}
+
+/* Top navigation bar (Material theme) */
+.md-header {
+    background-color: var(--header-bg-color) !important;
+    color: var(--header-text-color) !important;
+}
+
+
+/* Center the meta section (copyright, social links) */
+.md-footer-meta__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.md-footer-copyright {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    float: none;
+    padding: 1rem 0;
+}
+
+.md-footer-social {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+/* Fix any flex issues */
+.md-footer-meta.md-typeset {
+    text-align: center;
+}
