@@ -34,7 +34,8 @@ markdown_extensions:
 
 theme:
   name: material
-  logo: assets/images/banner_265x50.png
+  #logo: assets/images/banner_265x50.png
+  logo: assets/images/banner_333x65.png
   hide:
     - navigation
   palette:
