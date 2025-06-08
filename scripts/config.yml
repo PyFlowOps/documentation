@@ -1,0 +1,10 @@
+# This file is part of the `link-exclusion` package.
+# Any domains, subdomains, or URLs listed here will be excluded from link checking.
+---
+exclude:
+  - http://www.takemetoyourleader.com/external_link # This is a bogus link used as an example
+  - github.com
+
+  # These are the links that are auto checked due to the creation of the nested sidebar links from mkdocs.yml
+  - http://localhost:8100/about
+  - http://localhost:8100/src/docker/index.md

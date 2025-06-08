@@ -16,14 +16,20 @@ These are images that are utilized in Github Actions, Kubernetes environment,
 or running tools. We ship the environment with the product to keep running and
 maintaining of the tools easier.
 
-See [PyFlowOps Site Docker Image](src/docker/index.md)
+See [PyFlowOps Site Docker Image](src/docker/documentation/index.md)
 
 ## PyFlowOps Base Repository Template
 
 This is the documentation for the base repository template in which all of the applications
 are built upon.
 
-See [PyFlowOps Base Repo Template](src/base-repo-template/index.md)
+See [PyFlowOps Base Repo Template](src/base-repo-template/README.md)
+
+## Kubernetes Installation Documentation
+
+This is Kubernetes manifests for running PyFlowOps locally.
+
+See [PyFlowOps Kubernetes Installations](src/k8s-installs/index.md)
 
 ## PyFlowOps Portal Project
 

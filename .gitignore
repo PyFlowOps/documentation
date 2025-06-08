@@ -1,5 +1,5 @@
 # Temporary files
-cloud_functions/alert_notification/**/*.log
+**/*.log
 
 **/__pycache__
 **/node_modules
@@ -17,9 +17,14 @@ site/
 temp/
 
 # Local Documentation
-docs/src/docker**
+docs/src/documentation**
 docs/src/pfo-cli**
 docs/src/base-repo-template**
+docs/src/k8s-installs**
+docs/src/repo-additions**
+docs/src/aider_ai**
+docs/src/docker**
+
 .python**
 
 #IDE

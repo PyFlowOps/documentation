@@ -16,11 +16,12 @@ install: ##@repo Installs needed prerequisites and software to develop in the SR
 .PHONY : build serve
 build: ##@documentation Build the Documentation Site (Material UI React)
 	$(info ********** Build the Documentation Site (Material UI React) **********)
-	@bash scripts/docs.sh
-	@./.python/bin/python -m mkdocs build
+	#@bash scripts/docs.sh
+	#@./.python/bin/python -m mkdocs build
+	@./.python/bin/python scripts/build-docs-src.py
+	@./.python/bin/python docs/scripts/release-notes.py
 
 serve: ##@documentation Build and Publish the Documentation Site (Material UI React)
-	@make build
 	$(info ********** Serve the Documentation Site (Material UI React) **********)
 	@./.python/bin/python -m mkdocs serve
 
