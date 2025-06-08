@@ -1,0 +1,12 @@
+requirements.txt
+README.md
+Makefile
+Dockerfile
+.tool-versions
+.isort.cfg
+.gitignore
+.dockerignore
+temp/
+site/
+.python/
+.github/
