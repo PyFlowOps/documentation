@@ -23,7 +23,7 @@ RUN adduser -D ${user} -G ${group}
 WORKDIR /app
 COPY . .
 RUN chown -R ${user}:${group} /app \
-    && chmod -R 755 /app/docker/docs/entrypoint.sh
+    && chmod 755 /app/docker/docs/entrypoint.sh
 
 # Set the user to the one we created
 USER ${user}
