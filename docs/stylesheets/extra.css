@@ -227,3 +227,8 @@ body {
 .md-footer-meta.md-typeset {
     text-align: center;
 }
+
+/* Hide the TOC by default */
+.toc-content {
+    display: none;
+  }
