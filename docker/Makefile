@@ -3,15 +3,24 @@
 # my_target: ##@category_name sample description for my_target
 default: help
 
+.PHONY : build serve
+build: ##@documentation Build the Documentation Site (Material UI React)
+	$(info ********** Build the Documentation Site (Material UI React) **********)
+	@../.python/bin/python ../scripts/build-docs-src.py
+	@../.python/bin/python docs/scripts/release-notes.py
+
 PHONY: docs-package docs-publish
 docs-package: ##@documentation Image Build and Package the Documentation Site (Material UI React) to Docker Image
-	$(info ********** Package the Documentation Site (Material UI React) **********)
-	@bash ../scripts/docs.sh
+	$(info ********** Package the Documentation Site with Docker (Material UI React) **********)
 	@docker build -t docs:latest -f docs/Dockerfile ../
+
+docs-serve: ##@documentation Serve the Docker implementation of the Documentation Site (Material UI React)
+	$(info ********** Serve the Docker Containerized Documentation Site (Material UI React) **********)
+	@docker run --rm -p 8100:8100 -it docs:latest bash
 
 docs-publish: ##@documentation Image Build and Publish the Documentation Site Docker Image to GCR
 	@make docs-package
-	$(info ********** Publish the Documentation Image **********)
+	$(info ********** Publish the Documentation Docker Image **********)
 	@echo "This function is not yet implemented -- Coming soon!"
 
 ############# Development Section #############

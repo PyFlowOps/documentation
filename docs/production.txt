@@ -1,8 +1,11 @@
-
-mkdocs==1.5.2
-mkdocs-material==9.2.5
-mkdocs-material-extensions==1.1.1
+mkdocs==1.6.0
+mkdocs-material==9.5.27
+mkdocs-material-extensions==1.3.1
+mkdocs-mermaid2-plugin==1.1.1
 mkdocs-autorefs==0.5.0
-mkdocstrings==0.22.0
+mkdocstrings==0.24.0
+mkdocstrings-python==1.7.5
 mkdocs-exclude-search==0.6.5
 mkdocs-badges==0.4.1
+mkdocs-glightbox==0.4.0
+mkdocs-macros-plugin==1.3.7 # https://pypi.org/project/mkdocs-macros-plugin/
