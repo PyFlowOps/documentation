@@ -1,0 +1,47 @@
+---
+# This is the configuration file for the SRE documentation site.
+# Adding your own configuration to this site is as easy as adding a new file to the `docs` directory.
+url: https://github.com/PyFlowOps
+
+# Example entry:
+# The name of the repo
+# All of the files and directories defined here will be copied to the /docs/src directory
+# - sre-documentation:
+#   directories:
+#   - directory: # The name of the directory
+#     - subdir: <directory> # The name of the directory to create within the destination --> /docs/src/<repo-name>/<directory>
+#     - contents_only: false # This will decide if the directory gets copied, or the contents of the directory
+#   files: [] # List of individual files to copy
+
+# Repos to pull in from Github
+repos:
+  - base-repo-template:
+      directories: []
+      files: [README.md] # List of individual files to copy -- relative to the root of the repo
+
+  - k8s-installs:
+      directories:
+        - docs:
+            contents_only: true # This will decide if the directory gets copied, or the contents of the directory
+      files: [] # List of individual files to copy -- relative to the root of the repo
+
+  - pfo-cli:
+      directories:
+        - docs:
+            contents_only: true # This will decide if the directory gets copied, or the contents of the directory
+      files: [] # List of individual files to copy -- relative to the root of the repo
+  
+  - repo-additions:
+      directories: []
+      files: [README.md] # List of individual files to copy -- relative to the root of the repo
+
+  - aider_ai:
+      directories: []
+      files: [README.md] # List of individual files to copy -- relative to the root of the repo
+
+  - documentation:
+      directories:
+        - docker:
+            subdir: docker # The name of the directory --> /docs/src/docker/<repo-name>/<files> -- files_onlty: true
+            contents_only: true # This will decide if the directory gets copied, or the contents of the directory
+      files: [README.md] # List of individual files to copy -- relative to the root of the repo
