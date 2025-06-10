@@ -50,9 +50,9 @@ def create_initial_release():
         "create",
         "v0.0.1",
         "--title",
-        "Initial Release",
+        "Automated Initial Release",
         "--notes",
-        "Initial release of the project.",
+        "Automated Initial release of the project.",
         "--draft",
     ]
 

@@ -20,9 +20,6 @@ on:
         description: 'GitHub token for authentication'
         required: true
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
 jobs:
   versions:
     name: Project Versions

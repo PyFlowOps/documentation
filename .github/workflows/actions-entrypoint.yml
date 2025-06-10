@@ -22,9 +22,10 @@ jobs:
 
       - name: Initial Release (Lone Job)
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           echo "Running initial release job..."
+          gh release list --json 'tagName'
           python ${{ github.workspace }}/.github/workflows/src/initial_release.py
 
   dataReportJob:
@@ -58,7 +59,7 @@ jobs:
       - name: Check Versions
         run: |
           echo "Checking versions..."
-          echo "TOML Version: ${{ needs.call-versions.outputs.toml_version }}"
+          echo "Package Version: ${{ needs.call-versions.outputs.package_version }}"
           if [ "${{ needs.call-versions.outputs.latest_version }}" == "" ]; then
             echo "No Release Found!"
           else
