@@ -48,12 +48,12 @@ def create_initial_release():
         "gh",
         "release",
         "create",
-        "v0.0.1",
+        "v0.0.0",
         "--title",
         "Automated Initial Release",
         "--notes",
         "Automated Initial release of the project.",
-        "--draft",
+        "--latest" # Change this to "--draft" if you want to create a draft release
     ]
 
     # If the prereq() returns False, then the release already exists
