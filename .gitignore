@@ -1,5 +1,6 @@
 # Temporary files
 **/*.log
+**/bak.*
 
 **/__pycache__
 **/node_modules
