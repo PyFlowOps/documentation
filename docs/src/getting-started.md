@@ -33,7 +33,7 @@ You can add more access if you need to, but here is the access that the token sh
 
 ![pat3](../img/pat-access-3.png)
 
-## 3. Setup your Doppler Account
+## 3. Setup your Doppler Account _(if used)_
 
 You will need to create a Doppler account, you can register [here](https://dashboard.doppler.com/register){target="_blank"}.
 
