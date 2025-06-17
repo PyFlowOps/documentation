@@ -18,3 +18,24 @@ the `pfo.json`, they must follow the directory structure below:
 `<repo>/docker/<image_name>/Dockerfile>`
 
 **IMPORTANT**: You can have multiple Docker images in a repo, as long as they are in this format.
+
+## Adding Dockerfiles, CI/CD to pfo.json
+
+For the `pfo CLI` to scan and register your Dockerfile as part of the Kubernetes build/deployment process,
+you need to add your Docker information to the `pfo.json` file.
+
+If you do NOT have a "docker" key within the pfo.json file, you will need to create one that acts as the 
+highest level key for all docker builds from your repo.
+
+Example:
+
+```json
+"docker": {
+"docs": {
+    "image": "ghcr.io/pyflowops/documentation",
+    "base_path": "docker",
+    "repo_path": "docker/docs",
+    "dockerfile": "Dockerfile"
+}
+  ```
+  
