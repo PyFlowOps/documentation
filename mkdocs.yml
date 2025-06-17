@@ -7,7 +7,9 @@ repo_url: https://github.com/pyflowops
 # Navigation
 nav:
   - Home: index.md
-  - Getting Started: src/getting-started.md
+  - Getting Started:
+    - Setup: src/getting-started.md
+    - Building Docker Images: src/building-docker-images.md
   - About:
     - Release Notes: src/about/release-notes.md
     - License: src/about/license.md
