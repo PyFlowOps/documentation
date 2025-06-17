@@ -12,6 +12,13 @@
     "email": "philip.delorenzo@gmail.com",
     "date": "2025-06-09 16:46:46"
   },
+  "docker": {
+    "docs": {
+      "image": "ghcr.io/pyflowops/documentation",
+      "base_path": "docker",
+      "repo_path": "docker/docs",
+      "dockerfile": "Dockerfile"
+  },
   "k8s": {
     "name": "documentation",
     "labels": {

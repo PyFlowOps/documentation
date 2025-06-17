@@ -16,8 +16,6 @@ These are images that are utilized in Github Actions, Kubernetes environment,
 or running tools. We ship the environment with the product to keep running and
 maintaining of the tools easier.
 
-See [Creating A Docker Image for PyFlowOps](src/build-docker-image.md)
-
 Example of Docker image built for PyFlowOps:
 
 See [PyFlowOps Site Docker Image](src/docker/documentation/index.md)
