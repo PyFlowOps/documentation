@@ -7,7 +7,7 @@ default: help
 build: ##@documentation Build the Documentation Site (Material UI React)
 	$(info ********** Build the Documentation Site (Material UI React) **********)
 	@../.python/bin/python ../scripts/build-docs-src.py
-	@../.python/bin/python docs/scripts/release-notes.py
+	@../.python/bin/python ../docs/scripts/release-notes.py
 
 PHONY: docs-package docs-publish
 docs-package: ##@documentation Image Build and Package the Documentation Site (Material UI React) to Docker Image
