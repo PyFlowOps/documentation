@@ -68,8 +68,6 @@ if __name__ == "__main__":
 
     markdown_output = convert_escaped_string_to_markdown(input_text)
     open(RELEASE_NOTES_FILE, 'w').close() # Clear the file before writing
-    print(markdown_output)
-    time.sleep(19)  # Ensure the file is cleared before writing
 
     with open(RELEASE_NOTES_FILE, "w") as _f:
         _f.write("# Release Notes\n\n")
