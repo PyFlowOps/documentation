@@ -2,6 +2,7 @@ FROM python:3.13-alpine
 
 ARG user=docs
 ARG group=pyflowops
+ARG CACHE_BREAKER=1
 
 # Install dependencies, tools and install the gh CLI
 RUN apk add --no-cache \
