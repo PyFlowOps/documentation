@@ -10,7 +10,11 @@
   "changelog": {
     "user": "Philip De Lorenzo",
     "email": "philip.delorenzo@gmail.com",
+<<<<<<< HEAD
     "date": "2025-06-28 13:42:50"
+=======
+    "date": "2025-06-28 13:02:37"
+>>>>>>> 3594391 (chore: version bump)
   },
   "docker": {
     "docs": {
