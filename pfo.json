@@ -2,7 +2,7 @@
   "name": "documentation",
   "package_path": ".",
   "repo": "git@github.com:PyFlowOps/documentation.git",
-  "version": "0.0.5",
+  "version": "0.0.4",
   "registrant": {
     "user": "Philip De Lorenzo",
     "email": "philip.delorenzo@gmail.com"
