@@ -21,6 +21,10 @@
     }
   },
   "k8s": {
+    "argocd": {
+      "managed": true,
+      "overlays": "manifests/local/overlays"
+    },
     "name": "documentation",
     "manifest_path": "manifests",
     "labels": {
