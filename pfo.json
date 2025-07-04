@@ -2,7 +2,7 @@
   "name": "documentation",
   "package_path": ".",
   "repo": "git@github.com:PyFlowOps/documentation.git",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "registrant": {
     "user": "Philip De Lorenzo",
     "email": "philip.delorenzo@gmail.com"
@@ -10,7 +10,7 @@
   "changelog": {
     "user": "Philip De Lorenzo",
     "email": "philip.delorenzo@gmail.com",
-    "date": "2025-07-04 15:32:15"
+    "date": "2025-07-04 15:46:58"
   },
   "docker": {
     "docs": {
@@ -23,7 +23,7 @@
   "k8s": {
     "argocd": {
       "managed": true,
-      "overlays": "manifests/local/overlays"
+      "overlays": "manifests/argocd/overlays"
     },
     "name": "documentation",
     "manifest_path": "manifests/local/overlays",
