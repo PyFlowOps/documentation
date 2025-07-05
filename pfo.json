@@ -23,6 +23,8 @@
   "k8s": {
     "argocd": {
       "managed": true,
+      "manifest_path": "manifests/argocd",
+      "base": "manifests/argocd/base",
       "overlays": "manifests/argocd/overlays"
     },
     "name": "documentation",
