@@ -1,0 +1,28 @@
+# First, ensure argocd-server is configured for insecure access if Traefik handles TLS termination.
+# Edit the argocd-cmd-params-cm ConfigMap in the argocd namespace:
+# kubectl edit configmap argocd-cmd-params-cm -n argocd
+# Add/modify:
+# data:
+#   server.insecure: "true"
+#
+# After editing, delete the argocd-server pod to pick up the changes:
+# kubectl delete pod -l app.kubernetes.io/name=argocd-server -n argocd
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: documentation-http
+  namespace: local # ArgoCD is usually in the 'argocd' namespace
+spec:
+  entryPoints:
+    - web # This entrypoint listens on port 80 (HTTP)
+  routes:
+    - match: Host(`documentation.pyflowops.local`) && PathPrefix(`/`) # Replace with your desired hostname for ArgoCD UI
+      kind: Rule
+      services:
+        - name: documentation # The Kubernetes Service name for ArgoCD UI
+          port: 8100 # ArgoCD's HTTP port (will redirect to HTTPS if configured)
+  # Optional: Add a middleware for HTTP to HTTPS redirection if not handled by Traefik's entrypoint
+  # middlewares:
+  #   - name: redirect-to-https@kubernetescrd # Assuming you have a redirect middleware defined
