@@ -1,10 +1,12 @@
 # Release Notes
 
-## Release v0.0.5 - PyFlowOps CI/CD
+## Release v0.0.11 - PyFlowOps CI/CD
 
 ### Changes
 
-- New @philipdelorenzo (#15)
+##  Features
+
+- Fix @philipdelorenzo (#22)
 
 ### Contributors
 @philipdelorenzo  

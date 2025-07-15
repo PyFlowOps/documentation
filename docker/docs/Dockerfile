@@ -7,9 +7,10 @@ ARG CACHE_BREAKER=1
 # Install dependencies, tools and install the gh CLI
 RUN apk add --no-cache \
     bash \
+    github-cli \
     curl
 
-RUN curl -sS https://webi.sh/gh | sh
+#RUN curl -sS https://webi.sh/gh | sh
 
 # In order for the gh CLI to work in the environment, we need to set the PATH
 # This way, we can invoke it from the command line from anywhere
