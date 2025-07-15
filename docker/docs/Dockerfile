@@ -10,8 +10,6 @@ RUN apk add --no-cache \
     github-cli \
     curl
 
-#RUN curl -sS https://webi.sh/gh | sh
-
 # In order for the gh CLI to work in the environment, we need to set the PATH
 # This way, we can invoke it from the command line from anywhere
 # The gh CLI is installed in /root/.local/bin by default
