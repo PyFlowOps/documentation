@@ -5,3 +5,4 @@ resources:
 - service.yaml
 - secret.yaml
 - config.yaml
+- argocd-ssh-secret.yaml
