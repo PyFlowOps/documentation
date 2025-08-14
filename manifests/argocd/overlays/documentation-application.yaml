@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: documentation
+  name: docs
   namespace: argocd # Or the namespace where your ArgoCD instance is installed
 spec:
   project: pyflowops # The ArgoCD Project this application belongs to

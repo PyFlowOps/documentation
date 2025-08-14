@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: documentation
+  name: docs
   namespace: pyops-docs  # Sets Namespace
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/name: documentation
+    app.kubernetes.io/name: docs
   ports:
     - protocol: TCP
       port: 8100
