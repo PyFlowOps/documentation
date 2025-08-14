@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: pyops-docs
+  name: docs
+  labels:
+    app: docs
+data:
+  APP_NAME: docs
