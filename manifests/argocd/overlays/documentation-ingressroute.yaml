@@ -3,15 +3,15 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: documentation-http
-  namespace: local
+  namespace: pyops-docs
 spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`documentation.pyflowops.local`) && PathPrefix(`/`)
+    - match: Host(`docs.pyflowops.local`) && PathPrefix(`/`)
       kind: Rule
       services:
-        - name: documentation
+        - name: docs
           port: 8100
           scheme: http
           passHostHeader: true

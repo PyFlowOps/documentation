@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: local
-  name: documentation
+  namespace: pyops-docs
+  name: docs
   labels:
-    app: documentation
+    app: docs
 data:
-  APP_NAME: documentation
+  APP_NAME: docs
