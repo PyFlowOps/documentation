@@ -23,26 +23,9 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-# Let's get the prerequisites ready
-echo "[INFO] - Installing prerequisites..."
-kustomize build prereqs | kubectl apply -f - > /dev/null 2>&1 || true
+# Install Docs
+echo "[INFO] - Installing PyOps-Docs..."
+cd pyops-docs || exit 1 && kustomize build overlays | kubectl apply -f - > /dev/null 2>&1 || true
 sleep 3
 
-# We need to install the PostgreSQL storage first
-kubectl apply -f prereqs/postgres-pv.yaml > /dev/null 2>&1 || true
-sleep 3
-
-kubectl apply -f prereqs/postgres-pvc.yaml > /dev/null 2>&1 || true
-sleep 3
-
-# Install PostgreSQL
-echo "[INFO] - Installing PostgreSQL..."
-kustomize build postgres | kubectl apply -f - > /dev/null 2>&1 || true
-sleep 3
-
-# Install ADRift
-echo "[INFO] - Installing ADRift..."
-kustomize build overlays | kubectl apply -f - > /dev/null 2>&1 || true
-sleep 3
-
-echo "[COMPLETE] - ADRrift and its dependencies have been successfully installed!"
+echo "[COMPLETE] - PyOps-Docs and its dependencies have been successfully installed!"
