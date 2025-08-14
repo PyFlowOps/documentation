@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/name: documentation
   name: documentation
-  namespace: local  # Sets Namespace
+  namespace: pyops-docs  # Sets Namespace
 spec:
   selector:
     matchLabels:

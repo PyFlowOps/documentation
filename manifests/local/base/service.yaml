@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: documentation
-  namespace: local  # Sets Namespace
+  namespace: pyops-docs  # Sets Namespace
 spec:
   type: ClusterIP
   selector:
